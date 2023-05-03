@@ -75,3 +75,6 @@ NEXT_PUBLIC_API=http://localhost:3000
 > For the JWT_SECRET_KEY, you can put any string that you want.
 > For the MONGODB_URL, you have to put the connection string that is used to connect to your database, whether it's local or in the cloud.
 6. Run `npm start` to run the app.
+```bash
+npm start
+```
