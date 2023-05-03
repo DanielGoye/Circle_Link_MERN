@@ -1,5 +1,4 @@
 # Circle Link MERN
----
 A fullstack social media web application built using ReactJS, NextJS, Express, MongoDB.
 You can upload posts with descriptions and photos, add friends, remove friends.
 
