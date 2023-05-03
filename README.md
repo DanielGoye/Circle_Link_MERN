@@ -2,6 +2,9 @@
 A fullstack social media web application built using ReactJS, NextJS, Express, MongoDB.
 You can upload posts with descriptions and photos, add friends, remove friends.
 
+You can view the project here:
+https://circle-link.netlify.app
+
 ## Technologies used
 <h4 align="left">Frontend:</h4>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">
