@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8a"
+  },
+  "firstName": "test",
+  "lastName": "me",
+  "email": "aaaaaaa@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p11.jpeg",
+  "friends": [],
+  "location": "San Fran, CA",
+  "occupation": "Software Engineer",
+  "viewedProfile": 14561,
+  "impressions": 888822,
+  "createdAt": {
+    "$date": "1970-01-13T21:46:51.422Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-13T21:46:51.422Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8b"
+  },
+  "firstName": "Steve",
+  "lastName": "Ralph",
+  "email": "thataaa@gmail.com",
+  "password": "$!FEAS@!O)_IDJda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p3.jpeg",
+  "friends": [],
+  "location": "New York, CA",
+  "occupation": "Degenerate",
+  "viewedProfile": 12351,
+  "impressions": 55555,
+  "createdAt": {
+    "$date": "1970-01-19T11:13:09.072Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T20:24:19.893Z"
+  },
+  "__v": 33
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8c"
+  },
+  "firstName": "Some",
+  "lastName": "Guy",
+  "email": "someguy@gmail.com",
+  "password": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "picturePath": "p4.jpeg",
+  "friends": [],
+  "location": "Canada, CA",
+  "occupation": "Data Scientist Hacker",
+  "viewedProfile": 45468,
+  "impressions": 19986,
+  "createdAt": {
+    "$date": "1970-01-15T21:48:10.662Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-15T21:48:10.662Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8d"
+  },
+  "firstName": "Whatcha",
+  "lastName": "Doing",
+  "email": "whatchadoing@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p6.jpeg",
+  "friends": [],
+  "location": "Korea, CA",
+  "occupation": "Educator",
+  "viewedProfile": 41024,
+  "impressions": 55316,
+  "createdAt": {
+    "$date": "1970-01-15T02:40:14.568Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T20:24:24.986Z"
+  },
+  "__v": 15
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8e"
+  },
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p5.jpeg",
+  "friends": [],
+  "location": "Utah, CA",
+  "occupation": "Hacker",
+  "viewedProfile": 40212,
+  "impressions": 7758,
+  "createdAt": {
+    "$date": "1970-01-18T06:51:03.661Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T20:24:25.628Z"
+  },
+  "__v": 11
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f8f"
+  },
+  "firstName": "Harvey",
+  "lastName": "Dunn",
+  "email": "harveydunn@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p7.jpeg",
+  "friends": [],
+  "location": "Los Angeles, CA",
+  "occupation": "Journalist",
+  "viewedProfile": 976,
+  "impressions": 4658,
+  "createdAt": {
+    "$date": "1970-01-16T23:42:06.073Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T20:24:26.587Z"
+  },
+  "__v": 9
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f90"
+  },
+  "firstName": "Carly",
+  "lastName": "Vowel",
+  "email": "carlyvowel@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p8.jpeg",
+  "friends": [],
+  "location": "Chicago, IL",
+  "occupation": "Nurse",
+  "viewedProfile": 1510,
+  "impressions": 77579,
+  "createdAt": {
+    "$date": "1970-01-20T20:18:24.324Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T20:24:27.420Z"
+  },
+  "__v": 9
+},{
+  "_id": {
+    "$oid": "644ffffc5c2f7213739b0f91"
+  },
+  "firstName": "Jessica",
+  "lastName": "Dunn",
+  "email": "jessicadunn@gmail.com",
+  "password": "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
+  "picturePath": "p9.jpeg",
+  "friends": [
+    "6450e856ba7c80ee42053528",
+    "64513e0c8d1a52d55b9caca4"
+  ],
+  "location": "Washington, DC",
+  "occupation": "A Student",
+  "viewedProfile": 19420,
+  "impressions": 82970,
+  "createdAt": {
+    "$date": "1970-01-16T20:31:48.044Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T17:50:37.868Z"
+  },
+  "__v": 11
+}]
