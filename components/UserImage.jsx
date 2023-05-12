@@ -9,7 +9,8 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`${process.env.NEXT_PUBLIC_API}/assets/${image}`}
+        crossOrigin="anonymous"
+        src={`${image}`}
       />
     </Box>
   );

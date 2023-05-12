@@ -18,6 +18,7 @@ import {
   IconButton,
   useMediaQuery,
 } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import FlexBetween from "../../components/FlexBetween";
 import Dropzone from "react-dropzone";
 import UserImage from "../../components/UserImage";
@@ -50,6 +51,7 @@ const MyPostWidget = ({ picturePath }) => {
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
   const [post, setPost] = useState("");
+  const [loading, setLoading] = useState(false);
   const { palette } = useTheme();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
@@ -66,6 +68,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
     try {
+      setLoading(true);
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/api/posts/post`,
         formData,
@@ -88,9 +91,11 @@ const MyPostWidget = ({ picturePath }) => {
         severity: "success",
       });
       setOpen(true);
+      setLoading(false);
     } catch (error) {
       setSnackBarState({ message: err.response.data, severity: "error" });
       setOpen(true);
+      setLoading(false);
     }
   };
 
@@ -187,7 +192,8 @@ const MyPostWidget = ({ picturePath }) => {
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
         )}
-        <Button
+        <LoadingButton
+          loading={loading}
           disabled={!post}
           onClick={handlePost}
           sx={{
@@ -196,8 +202,8 @@ const MyPostWidget = ({ picturePath }) => {
             borderRadius: "3rem",
           }}
         >
-          POST
-        </Button>
+          <span>POST</span>
+        </LoadingButton>
         <Snackbar
           anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
           open={open}

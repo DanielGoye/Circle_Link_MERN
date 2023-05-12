@@ -1,3 +1,5 @@
+const cloudinary = require("cloudinary").v2;
+const fs = require("fs");
 const { Post } = require("../models/posts");
 const { User } = require("../models/user");
 
@@ -5,6 +7,14 @@ const createPost = async (req, res) => {
   try {
     const { userId, description } = req.body;
     const user = await User.findById(userId);
+    const result = await cloudinary.uploader.upload(
+      `${req.file.destination}/${req.file.filename}`,
+      {
+        folder: "Circle_Link/Posts",
+        use_filename: true,
+        resource_type: "image",
+      }
+    );
     const newPost = new Post({
       userId,
       firstName: user.firstName,
@@ -12,11 +22,17 @@ const createPost = async (req, res) => {
       location: user.location,
       description,
       userPicturePath: user.picturePath,
-      picturePath: req.file.filename,
+      picturePath: result.secure_url,
       likes: {},
       comments: [],
     });
     await newPost.save();
+    fs.unlink(`${req.file.destination}/${req.file.filename}`, (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
     const posts = await Post.find();
     res.status(200).json(posts);
   } catch (err) {

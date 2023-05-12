@@ -20,6 +20,7 @@ server.use(
   helmet.contentSecurityPolicy({
     directives: {
       "script-src": ["'self'", "'unsafe-eval'"],
+      "img-src": ["'self'", "https: data:"],
     },
   })
 );

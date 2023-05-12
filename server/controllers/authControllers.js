@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("cloudinary").v2;
+const fs = require("fs");
 const { User } = require("../models/user");
 
 const register = async (req, res) => {
@@ -19,13 +21,20 @@ const register = async (req, res) => {
 
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
-
+    const result = await cloudinary.uploader.upload(
+      `${req.file.destination}/${req.file.filename}`,
+      {
+        folder: "Circle_Link/Profile_Pictures",
+        use_filename: true,
+        resource_type: "image",
+      }
+    );
     const newUser = new User({
       firstName,
       lastName,
       email,
       password: hash,
-      picturePath: req.file.filename,
+      picturePath: result.secure_url,
       friends,
       location,
       occupation,
@@ -34,6 +43,12 @@ const register = async (req, res) => {
     });
 
     const savedUser = await newUser.save();
+    fs.unlink(`${req.file.destination}/${req.file.filename}`, (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
     res.status(201).json(savedUser);
   } catch (error) {
     console.log(error);

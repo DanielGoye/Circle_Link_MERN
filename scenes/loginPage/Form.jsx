@@ -7,6 +7,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -61,6 +62,7 @@ const Form = () => {
     message: "",
     severity: "",
   });
+  const [loading, setLoading] = useState(false);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -82,6 +84,7 @@ const Form = () => {
     }
     formData.append("picturePath", values.picture.name);
     try {
+      setLoading(true);
       const savedUserResponse = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/api/auth/register`,
         formData
@@ -95,11 +98,13 @@ const Form = () => {
           severity: "success",
         });
         setOpen(true);
+        setLoading(false);
         setPageType("login");
       }
     } catch (err) {
       setSnackBarState({ message: err.response.data, severity: "error" });
       setOpen(true);
+      setLoading(false);
     }
   };
 
@@ -264,7 +269,8 @@ const Form = () => {
 
           {/* BUTTONS */}
           <Box>
-            <Button
+            <LoadingButton
+              loading={loading}
               fullWidth
               type="submit"
               sx={{
@@ -275,8 +281,8 @@ const Form = () => {
                 "&:hover": { color: palette.primary.main },
               }}
             >
-              {isLogin ? "LOGIN" : "REGISTER"}
-            </Button>
+              <span>{isLogin ? "LOGIN" : "REGISTER"}</span>
+            </LoadingButton>
             <Typography
               onClick={() => {
                 setPageType(isLogin ? "register" : "login");
