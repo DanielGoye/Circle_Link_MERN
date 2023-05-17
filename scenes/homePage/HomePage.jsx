@@ -13,11 +13,12 @@ const HomePage = () => {
   const user = useSelector((state) => state.user);
   const router = useRouter();
   useEffect(() => {
-    axios.get("/api/warmup");
     if (!user) router.replace("/login");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
-
+  useEffect(() => {
+    axios.get("/api/warmup");
+  }, []);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const userDetails = useSelector((state) => state.user);
   const { _id, picturePath } =
@@ -43,7 +44,7 @@ const HomePage = () => {
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
           <MyPostWidget picturePath={picturePath} />
-          <PostsWidget userId={_id} /> 
+          <PostsWidget userId={_id} />
         </Box>
         {isNonMobileScreens && (
           <Box flexBasis="26%">
