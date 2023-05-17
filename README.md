@@ -10,7 +10,6 @@ A social media web application built using ReactJS, NextJS, Express, MongoDB.
 ## Coming Soon
 - Share Location
 - Invite Friends
-- Mobile App
 - Hashtags
 
 You can view the project here:
