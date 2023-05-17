@@ -27,6 +27,9 @@ server.use(
 server.use("/assets", express.static(path.join(__dirname, "public/assets")));
 dbConnect();
 
+server.get("/api/warmup", (req, res) => {
+  console.log("Warmup received");
+});
 server.use("/api/auth", require("./routes/authRoutes"));
 server.use("/api/users", require("./routes/userRoutes"));
 server.use("/api/posts", require("./routes/postsRoutes"));

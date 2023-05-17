@@ -7,11 +7,13 @@ import MyPostWidget from "../widgets/MyPostWidget";
 import PostsWidget from "../widgets/PostsWidget";
 import AdvertWidget from "../widgets/AdvertWidget";
 import FriendListWidget from "../widgets/FriendListWidget";
+import axios from "axios";
 
 const HomePage = () => {
   const user = useSelector((state) => state.user);
   const router = useRouter();
   useEffect(() => {
+    axios.get("/api/warmup");
     if (!user) router.replace("/login");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);

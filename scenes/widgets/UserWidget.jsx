@@ -10,13 +10,15 @@ import { Box, Typography, Divider, useTheme } from "@mui/material";
 import UserImage from "../../components/UserImage";
 import FlexBetween from "../../components/FlexBetween";
 import WidgetWrapper from "../../components/WidgetWrapper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setLogout } from "../../redux/index";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
 
 const UserWidget = ({ userId, picturePath }) => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState(null);
   const { palette } = useTheme();
   const router = useRouter();
@@ -37,6 +39,9 @@ const UserWidget = ({ userId, picturePath }) => {
       setUser(response.data);
     } catch (error) {
       console.log(error.response.data);
+      if (error.response.data === "JsonWebTokenError: invalid signature") {
+        dispatch(setLogout());
+      }
     }
   };
 
