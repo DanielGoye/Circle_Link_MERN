@@ -17,7 +17,7 @@ const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   useEffect(() => {
-    axios.get("/api/warmup");
+    axios.get(`${process.env.NEXT_PUBLIC_API}/api/warmup`);
   }, []);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const userDetails = useSelector((state) => state.user);

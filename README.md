@@ -4,14 +4,13 @@ A social media web application built using ReactJS, NextJS, Express, MongoDB.
 > Portfolio project, Open to contributions
 
 ## Features
-- Upload Posts(Images, Video)
-- Add and Remove Friends
+- Upload Posts(Images, Video).
+- Add and Remove Friends.
 
 ## Coming Soon
-- Share Location
-- Invite Friends
-- Mobile App
-- Hashtags
+- Share Location.
+- Invite Friends.
+- Hashtags.
 
 You can view the project here:
 https://circle-link.netlify.app
