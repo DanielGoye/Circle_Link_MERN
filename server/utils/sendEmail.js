@@ -1,19 +1,18 @@
 const nodemailer = require("nodemailer");
 
 const sendMail = async (options) => {
-  const returnObject = {};
   const transporter = nodemailer.createTransport({
-    host: "smtp-relay.sendinblue.com",
-    port: 587,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
     secure: false,
     auth: {
-      user: "danielgoye92@gmail.com",
-      pass: "3ntYqrgBCsjQxTD0",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
   const mailOptions = {
-    from: `danielgoye92@gmail.com`,
+    from: process.env.EMAIL_USER,
     to: options.to,
     subject: options.subject,
     html: options.text,
