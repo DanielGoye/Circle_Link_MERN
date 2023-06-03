@@ -110,6 +110,7 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
     try {
+      setLoading(true);
       const loggedInResponse = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/api/auth/login`,
         values
@@ -124,9 +125,11 @@ const Form = () => {
             token: loggedIn.token,
           })
         );
+        setLoading(false);
         router.push("/");
       }
     } catch (err) {
+      setLoading(false);
       setSnackBarState({ message: err.response.data, severity: "error" });
       setOpen(true);
     }
@@ -301,6 +304,24 @@ const Form = () => {
                 ? "Don't have an account? Sign Up here."
                 : "Already have an account? Login here."}
             </Typography>
+            {isLogin && (
+              <Typography
+                onClick={() => {
+                  router.push("/forgot-password");
+                }}
+                sx={{
+                  textDecoration: "underline",
+                  color: palette.primary.main,
+                  "&:hover": {
+                    cursor: "pointer",
+                    color: palette.primary.light,
+                  },
+                  marginTop: "1rem",
+                }}
+              >
+                Forgot Password?
+              </Typography>
+            )}
           </Box>
           <Snackbar
             anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
