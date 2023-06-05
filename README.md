@@ -1,7 +1,7 @@
 # Circle Link MERN
 ---
 A social media web application built using ReactJS, NextJS, Express, MongoDB.
-> Portfolio project, Open to contributions 
+> Portfolio project, Open to contributions
 
 ## Features
 - Upload Posts(Images, Video).
