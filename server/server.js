@@ -1,12 +1,9 @@
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const dev = process.env.NODE_ENV !== "production";
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const next = require("next");
-const app = next({ dev });
-const handle = app.getRequestHandler();
 const { dbConnect } = require("./config/databaseConfig");
 const path = require("path");
 const server = express();
@@ -33,12 +30,6 @@ server.get("/api/warmup", (req, res) => {
 server.use("/api/auth", require("./routes/authRoutes"));
 server.use("/api/users", require("./routes/userRoutes"));
 server.use("/api/posts", require("./routes/postsRoutes"));
-
-app.prepare().then(() => {
-  server.all("*", (req, res) => {
-    return handle(req, res);
-  });
-});
 
 server.listen(PORT, () => {
   console.log(`Server at port ${PORT} is running`);
