@@ -103,7 +103,7 @@ const forgotPassword = async (req, res) => {
       res.status(404).json("Email does not exist.");
       return;
     }
-    const resetPasswordUrl = `${process.env.URL}/password-reset/${resetToken}`;
+    const resetPasswordUrl = `${process.env.SITEURL}/password-reset/${resetToken}`;
     const message = `
       <h1>You have requested to reset your password.</h1>
       <p>Please go to this link to reset your password.</p>
